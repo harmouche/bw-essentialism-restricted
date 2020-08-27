@@ -1,0 +1,77 @@
+
+APIs
+
+Create New User
+https://hh-essenialism.herokuapp.com/api/auth/register
+
+Login (Token generator)
+https://hh-essenialism.herokuapp.com/api/auth/login
+
+List of Projects (must be logged in)
+https://hh-essenialism.herokuapp.com/api/projects
+
+Get a Project by id
+https://hh-essenialism.herokuapp.com/api/projects/:id
+
+Add a Project
+https://hh-essenialism.herokuapp.com/api/projects
+
+Update a Project
+https://hh-essenialism.herokuapp.com/api/projects/:id
+
+Delete Project
+https://hh-essenialism.herokuapp.com/api/projects/:id
+
+
+
+Valid Usernames and Passwords
+
+username: user1@gmail.com
+password: 123456789
+
+username: user2@gmail.com
+password: 123456789
+
+
+When creating a new user, the server will return
+
+{
+    "data": {
+        "id": 2,
+        "name": "user2",
+        "username": "user2@gmail.com",
+        "password": "$2a$08$.ivTOSacoRpDL2By0haRP.Lhi7oftxnLMDyHRBTH9YAORWBpIjtxy"
+    }
+}
+
+
+when loging in, the server will return
+
+{
+    "message": "Welcome to our API",
+    "token": "a token string"
+}
+
+when requesting projects, the fromat from the server is
+
+{
+        "id": 1,
+        "title": "Organize closet",
+        "summary": "need to get rid of items I don't use",
+        "importance": 3,
+        "user_id": 1,
+        "value_a": 8,
+        "value_id": 5,
+        "value_name": "Autonomy"
+    }
+
+when updating a project detail, the server will return 
+
+1
+
+
+when deleting a project, the server will return
+{
+    "removed": 1
+}
+
