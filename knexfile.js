@@ -1,8 +1,8 @@
 require("dotenv").config();
 
-const pgConnection = process.env.DATABASE_URL || "postgresql://postgres:1234@localhost:5432/essentialism-2";
+const pgConnection = process.env.DATABASE_URL || "postgresql://postgres:4@localhost:/essentialism-2";
 // if using a local postgres server, please create the database manually, Knex will not create it autmatically
-
+console.log("DATABASE URL LOG", process.env.DATABASE_URL)
 module.exports = {
   development: {
     client: "sqlite3",
@@ -15,6 +15,19 @@ module.exports = {
         conn.run("PRAGMA foreign_keys = ON", done);
       },
     },
+    migrations: {
+      directory: "./database/migrations",
+    },
+    seeds: {
+      directory: "./database/seeds",
+    },
+  },
+  testing: {
+    client: "sqlite3",
+    connection: {
+      filename: "./database/test.db3",
+    },
+    useNullAsDefault: true,
     migrations: {
       directory: "./database/migrations",
     },
